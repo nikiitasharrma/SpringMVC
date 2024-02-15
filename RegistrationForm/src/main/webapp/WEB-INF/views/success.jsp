@@ -7,8 +7,8 @@
 <meta charset="ISO-8859-1">
 </head>
 <body>
-	<h3>Hello ${userName}!</h3>
+	<h3>Hello ${user.userName}!</h3>
 	<p>You have been successfully registered with the email id:
-		${email}</p>
+		${user.email}</p>
 </body>
 </html>
