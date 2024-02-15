@@ -29,6 +29,10 @@ public class FormController {
 	
 	@RequestMapping(path="/processForm", method = RequestMethod.POST)
 	public String processForm(@ModelAttribute User user) {
+		
+		if(user.getEmail().isBlank() || user.getUserName().isBlank() || user.getPassword().isBlank()) {
+			return "redirect:/register";
+		}
 		userService.createUser(user);
 		return "success";
 	}
