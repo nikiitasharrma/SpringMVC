@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.spring.mvc.dao.UserService;
 import com.spring.mvc.models.User;
@@ -35,6 +36,13 @@ public class FormController {
 		}
 		userService.createUser(user);
 		return "success";
+	}
+	
+	@RequestMapping("/help")
+	public RedirectView help() {
+		RedirectView rv = new RedirectView();
+		rv.setUrl("https://www.google.com");
+		return rv;
 	}
 
 	public UserService getUserService() {
