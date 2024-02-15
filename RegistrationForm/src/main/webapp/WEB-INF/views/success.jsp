@@ -21,7 +21,7 @@
 	<h2 class="text-center mt-5">${heading}</h2>
 	<p class="text-center">${desc}</p>
 	<h3 class="ml-5">Hello ${user.userName}!</h3>
-	<p class="ml-5">You have been successfully registered with the email id:
-		${user.email}</p>
+	<p class="ml-5">You have been successfully registered with the id:
+		${user.id}</p>
 </body>
 </html>
