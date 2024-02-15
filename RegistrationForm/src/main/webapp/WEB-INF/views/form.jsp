@@ -22,20 +22,21 @@
 	<div class="container mt-5">
 		<form action="processForm" method="post">
 			<div class="form-group">
-				<label for="inputEmail">Email address</label> <input type="email"
+				<label for="inputEmail">Email address</label> 
+				<input type="email"
 					class="form-control" id="inputEmail" 
 					placeholder="Enter email" name="email">
 			</div>
 
 			<div class="form-group">
-				<label for="inputUserName">User Name</label> <input type="text"
-					class="form-control" id="inputUserName"
+				<label for="inputUserName">User Name</label> 
+				<input type="text" class="form-control" id="inputUserName"
 					placeholder="Enter userName" name="userName">
 			</div>
 
 			<div class="form-group">
-				<label for="inputPassword">Password</label> <input type="password"
-					class="form-control" id="inputPassword"
+				<label for="inputPassword">Password</label> 
+				<input type="password" class="form-control" id="inputPassword"
 					placeholder="Enter password" name="password">
 			</div>
 
