@@ -11,6 +11,12 @@ import com.spring.mvc.models.User;
 @Controller
 public class FormController {
 	
+	@ModelAttribute
+	public void commonData(Model m) {
+		m.addAttribute("heading", "Registration Form");
+		m.addAttribute("desc", "We will send you notifications");
+	}
+	
 	@RequestMapping("/register")
 	public String showView() {
 		return "form";
