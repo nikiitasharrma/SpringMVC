@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,9 +20,16 @@
 </head>
 <body>
 	<h2 class="text-center mt-5">${heading}</h2>
-	<p class="text-center">${desc}</p>>
+	<div class="alert alert-danger" role="alert">
+		<form:errors path="user.*" />
+	</div>
 	<div class="container mt-5">
 		<form action="processForm" method="post">
+		    <div class="form-group">
+				<label for="inputId">Id</label> <input type="text"
+					class="form-control" id="id" placeholder="Enter id"
+					name="id">
+			</div>
 			<div class="form-group">
 				<label for="inputEmail">Email address</label> <input type="email"
 					class="form-control" id="inputEmail" placeholder="Enter email"
@@ -46,5 +54,4 @@
 
 		</form>
 	</div>
-
 </html>

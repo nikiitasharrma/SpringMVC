@@ -3,6 +3,7 @@ package com.spring.mvc.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,10 +30,10 @@ public class FormController {
 	}
 	
 	@RequestMapping(path="/processForm", method = RequestMethod.POST)
-	public String processForm(@ModelAttribute User user) {
+	public String processForm(@ModelAttribute User user, BindingResult result) {
 		
-		if(user.getEmail().isBlank() || user.getUserName().isBlank() || user.getPassword().isBlank()) {
-			return "redirect:/register";
+		if(result.hasErrors()){
+			return "form";
 		}
 		userService.createUser(user);
 		return "success";
