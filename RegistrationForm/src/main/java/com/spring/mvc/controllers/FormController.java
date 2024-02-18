@@ -1,6 +1,7 @@
 package com.spring.mvc.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.spring.mvc.dao.UserService;
@@ -68,24 +70,7 @@ public class FormController {
 		rv.setUrl("https://www.google.com");
 		return rv;
 	}
-	
-	@ExceptionHandler(value = NullPointerException.class)
-	public String nullPointerExcHandler(Model m) {
-		m.addAttribute("msg","Null Pointer Exception occured!");
-		return "error";
-	}
-	
-	@ExceptionHandler(value = NumberFormatException.class)
-	public String nulmberFormatExcHandler(Model m) {
-		m.addAttribute("msg","Number Format Exception occured!");
-		return "error";
-	}
-	
-	@ExceptionHandler(value = Exception.class)
-	public String ExcHandler(Model m) {
-		m.addAttribute("msg", "Some Exception occured!");
-		return "error";
-	}
+
 
 	public UserService getUserService() {
 		return userService;
