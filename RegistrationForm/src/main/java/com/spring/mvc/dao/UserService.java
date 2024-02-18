@@ -15,6 +15,11 @@ public class UserService {
 		int id = (Integer) userDao.saveUser(user);
 		return id;
 	}
+	
+	public User getUser(int userId) {
+		User user = userDao.selectUser(userId);
+		return user;
+	}
 
 	public UserDao getUserDao() {
 		return userDao;

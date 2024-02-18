@@ -19,6 +19,11 @@ public class UserDao {
 		int id = (Integer) hibernateTemplate.save(user);
 		return id;
 	}
+	
+	public User selectUser(int userId) {
+		User user = hibernateTemplate.get(User.class, userId);
+		return user;
+	}
 
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
