@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,19 @@ public class FormController {
 		if(result.hasErrors()){
 			return "form";
 		}
+		
+		//Check for nullPointerExcHandler method
+//		String str=null; System.out.println(str.length());
+		
+		//Check for numberFormatExcHandler method
+//		String str = "nikita";
+//		int i = Integer.parseInt(str);
+//		System.out.println(i);
+		
+		//Check for ExcHandler method
+//		Object obj = "Hello";
+//	    Integer intValue = (Integer) obj;
+		
 		userService.createUser(user);
 		return "success";
 	}
@@ -53,6 +67,24 @@ public class FormController {
 		RedirectView rv = new RedirectView();
 		rv.setUrl("https://www.google.com");
 		return rv;
+	}
+	
+	@ExceptionHandler(value = NullPointerException.class)
+	public String nullPointerExcHandler(Model m) {
+		m.addAttribute("msg","Null Pointer Exception occured!");
+		return "error";
+	}
+	
+	@ExceptionHandler(value = NumberFormatException.class)
+	public String nulmberFormatExcHandler(Model m) {
+		m.addAttribute("msg","Number Format Exception occured!");
+		return "error";
+	}
+	
+	@ExceptionHandler(value = Exception.class)
+	public String ExcHandler(Model m) {
+		m.addAttribute("msg", "Some Exception occured!");
+		return "error";
 	}
 
 	public UserService getUserService() {
